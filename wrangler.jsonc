@@ -14,5 +14,8 @@
       "database_id": "c94ea73c-e1de-4446-b156-886b33f74b37"
     }
   ],
+  "send_email": [
+    { "name": "SEND_EMAIL", "destination_address": "amir.mirsaeed@gmail.com" }
+  ],
   "observability": { "enabled": true }
 }

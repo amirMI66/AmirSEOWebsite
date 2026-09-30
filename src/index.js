@@ -1,3 +1,5 @@
+import { sendLeadAlert } from "./notify.js";
+
 // Amir SEO website: serves the static site from /public and handles the contact form.
 // POST /api/contact  ->  validates the lead and stores it in the D1 database (binding: DB).
 
@@ -15,7 +17,7 @@ function clean(value, max) {
   return String(value ?? "").trim().slice(0, max);
 }
 
-async function handleContact(request, env) {
+async function handleContact(request, env, ctx) {
   let data;
   try {
     data = await request.json();
@@ -54,11 +56,16 @@ async function handleContact(request, env) {
     )
     .run();
 
+  // Email alert to Amir; the lead is already saved, so a failed email never breaks the form.
+  ctx.waitUntil(
+    sendLeadAlert(env, lead, request.cf?.country).catch((err) => console.error("lead email failed", err))
+  );
+
   return json({ ok: true });
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
     // Google Search Console verification file (served by the Worker so it isn't redirected).
@@ -71,7 +78,7 @@ export default {
     if (url.pathname === "/api/contact") {
       if (request.method !== "POST") return json({ error: "Method not allowed" }, 405);
       try {
-        return await handleContact(request, env);
+        return await handleContact(request, env, ctx);
       } catch (err) {
         console.error("contact form error", err);
         return json({ error: "Your request could not be sent. Please try again in a moment." }, 500);
