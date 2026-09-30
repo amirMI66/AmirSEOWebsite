@@ -11,7 +11,7 @@
 <meta property="og:title" content="Amir SEO · SEO Consultant">
 <meta property="og:description" content="Technical SEO, on-page optimization and local search for companies of every size and industry.">
 <meta name="twitter:card" content="summary">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Amir SEO","url":"https://amirmirsaeid.ca/","description":"SEO consulting: technical audits, on-page optimization, local SEO and monthly SEO.","founder":{"@type":"Person","name":"Amir"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Amir SEO","url":"https://amirmirsaeid.ca/","description":"SEO consulting: technical audits, on-page optimization, local SEO and monthly SEO.","founder":{"@type":"Person","name":"Amir"},"knowsAbout":["Ecommerce SEO","Automotive SEO","Small business SEO","Local SEO"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -131,6 +131,9 @@ section{padding-block:clamp(56px,8vw,96px)}
 .avatar{width:clamp(96px,16vw,160px);aspect-ratio:1;max-width:100%;border-radius:50%;background:conic-gradient(from 200deg,var(--blue),var(--green),var(--yellow),var(--orange),var(--violet),var(--blue));color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35);display:grid;place-items:center;font:800 clamp(2.4rem,5vw,3.8rem)/1 var(--display)}
 .about-copy{display:flex;flex-direction:column;gap:16px;max-width:40rem;min-width:0}
 .about-copy p{color:var(--muted)}
+.industries{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.industries li{--c:var(--blue);font:500 .85rem/1 var(--body);color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent);border:1px solid color-mix(in srgb,var(--c) 30%,transparent);padding:8px 14px;border-radius:999px}
+.industries li:nth-child(2){--c:var(--orange)}.industries li:nth-child(3){--c:var(--green)}.industries li:nth-child(4){--c:var(--violet)}
 @media (max-width:600px){.about{grid-template-columns:1fr}}
 
 .faq{display:grid;gap:0;max-width:46rem}
@@ -300,7 +303,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <div class="about-copy">
         <span class="eyebrow">About</span>
         <h2>Hi, I'm Amir.</h2>
-        <p>I'm an SEO consultant partnering with established brands and enterprise organizations. I lead every engagement personally, from strategy through execution, so your team works with a senior specialist at every stage.</p>
+        <p>I'm an SEO consultant with hands-on experience across a wide range of industries. I've helped ecommerce brands, automotive companies, small businesses and local businesses grow their organic visibility and turn search traffic into revenue.</p>
+        <ul class="industries" aria-label="Industries I've worked with">
+          <li>Ecommerce</li><li>Automotive</li><li>Small businesses</li><li>Local businesses</li>
+        </ul>
+        <p>I lead every engagement personally, from strategy through execution, so your team works with a senior specialist at every stage.</p>
         <p>My work is measured by business outcomes: organic visibility, qualified traffic and revenue. Every recommendation is prioritized by impact and clearly documented, so your marketing, product and development teams can act on it with confidence.</p>
       </div>
     </div>
