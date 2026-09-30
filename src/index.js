@@ -61,6 +61,13 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // Google Search Console verification file (served by the Worker so it isn't redirected).
+    if (url.pathname === "/google9f222dfd10a66626.html") {
+      return new Response("google-site-verification: google9f222dfd10a66626.html", {
+        headers: { "Content-Type": "text/html; charset=utf-8" },
+      });
+    }
+
     if (url.pathname === "/api/contact") {
       if (request.method !== "POST") return json({ error: "Method not allowed" }, 405);
       try {
