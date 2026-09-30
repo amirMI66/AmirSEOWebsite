@@ -1,4 +1,4 @@
-# Amir SEO
+# Amir, SEO & AI Consultant
 
 Website for Amir's SEO & AI consulting services, hosted on Cloudflare Workers.
 
