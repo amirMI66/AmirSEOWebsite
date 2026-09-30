@@ -108,9 +108,12 @@ section{padding-block:clamp(56px,8vw,96px)}
 .band{background:var(--surface);border-block:1px solid var(--line)}
 .tint-blue{--sec:var(--blue);background:color-mix(in srgb,var(--blue) 7%,var(--surface))}
 .tint-green{--sec:var(--green);background:color-mix(in srgb,var(--green) 8%,var(--surface))}
+.tint-indigo{--sec:var(--violet);background:linear-gradient(180deg,#eceffc 0%,#f3eefd 100%)}
+.tint-mint{--sec:var(--green)!important;background:color-mix(in srgb,var(--green) 7%,#f6f7f5)}
+.tint-warm{--sec:var(--orange);background:linear-gradient(180deg,#fdf4ea 0%,#fbf0e6 100%)}
 .tint-violet{--sec:var(--violet);background:color-mix(in srgb,var(--violet) 7%,var(--surface))}
 #process{--sec:var(--orange)}
-#about{--sec:var(--violet)}
+#about{--sec:var(--green)}
 
 .services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .svc{--c:var(--blue);background:color-mix(in srgb,var(--c) 9%,#ffffff);border:1px solid color-mix(in srgb,var(--c) 22%,transparent);border-radius:18px;padding:28px;display:flex;flex-direction:column;gap:12px;transition:background .2s ease,transform .2s ease}
@@ -180,12 +183,12 @@ section{padding-block:clamp(56px,8vw,96px)}
 @media (max-width:600px){.about{grid-template-columns:1fr}}
 
 .faq{display:grid;gap:0;max-width:46rem}
-.faq details{border-top:1px solid var(--line);padding:18px 0}
-.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq details{border-top:1px solid color-mix(in srgb,var(--orange) 22%,transparent);padding:18px 0}
+.faq details:last-child{border-bottom:1px solid color-mix(in srgb,var(--orange) 22%,transparent)}
 .faq summary{cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font:500 1.3rem/1 var(--mono);color:var(--violet)}
-.faq details[open] summary{color:var(--violet)}
+.faq summary::after{content:"+";font:500 1.3rem/1 var(--mono);color:var(--orange)}
+.faq details[open] summary{color:color-mix(in srgb,var(--orange) 80%,#000)}
 .faq details[open] summary::after{content:"–"}
 .faq details p{color:var(--muted);margin-top:10px}
 
