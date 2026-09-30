@@ -175,12 +175,27 @@ section{padding-block:clamp(56px,8vw,96px)}
 .faq details[open] summary::after{content:"–"}
 .faq details p{color:var(--muted);margin-top:10px}
 
-.contact{background:radial-gradient(30rem 20rem at 100% 0%,color-mix(in srgb,var(--blue) 45%,transparent),transparent 70%),radial-gradient(24rem 18rem at 0% 100%,color-mix(in srgb,var(--orange) 35%,transparent),transparent 70%),var(--ink);color:var(--bg);border-radius:24px;padding:clamp(28px,6vw,64px);display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.contact{background:radial-gradient(30rem 20rem at 100% 0%,color-mix(in srgb,var(--blue) 45%,transparent),transparent 70%),radial-gradient(24rem 18rem at 0% 100%,color-mix(in srgb,var(--orange) 35%,transparent),transparent 70%),var(--ink);color:var(--bg);border-radius:24px;padding:clamp(24px,5vw,56px);display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(28px,4vw,48px);align-items:start}
 .contact h2{color:var(--bg)}
 .contact p{color:color-mix(in srgb,var(--bg) 75%,var(--ink))}
-.contact .mail{display:flex;flex-direction:column;gap:12px;min-width:0}
-.contact .addr{font:500 1.05rem/1.3 var(--mono);color:var(--bg);overflow-wrap:anywhere;user-select:all}
-.contact .btn{background:var(--yellow);color:#000;align-self:flex-start}
+.contact-intro{display:flex;flex-direction:column;gap:14px;min-width:0}
+.perks{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:8px;color:var(--bg);font-size:.95rem}
+.perks li::before{content:"✓";color:var(--yellow);font-weight:700;margin-right:10px}
+.lead-form{background:#ffffff;color:var(--ink);border-radius:18px;padding:clamp(20px,3vw,28px);display:flex;flex-direction:column;gap:14px;min-width:0}
+.lead-form .row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:520px){.lead-form .row{grid-template-columns:1fr}}
+.lead-form label{display:flex;flex-direction:column;gap:6px;font-size:.88rem;font-weight:600;color:var(--ink);min-width:0}
+.lead-form input,.lead-form select,.lead-form textarea{font:400 1rem/1.4 var(--body);color:var(--ink);background:#f6f6f4;border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;width:100%;transition:border-color .15s ease,background .15s ease}
+.lead-form textarea{resize:vertical;min-height:110px}
+.lead-form input:focus,.lead-form select:focus,.lead-form textarea:focus{outline:none;border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 18%,transparent)}
+.lead-form [aria-invalid="true"]{border-color:var(--bad)}
+.lead-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.lead-form .btn{background:var(--ink);color:#fff;justify-content:center;width:100%;padding:14px 20px}
+.lead-form .btn[disabled]{opacity:.6;cursor:progress}
+.form-status{font-size:.92rem;min-height:1.2em;margin:0}
+.contact .form-status{color:var(--muted)}
+.contact .form-status.ok{color:var(--green);font-weight:600}
+.contact .form-status.err{color:var(--bad);font-weight:600}
 @media (max-width:760px){.contact{grid-template-columns:1fr}}
 
 footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
@@ -369,15 +384,36 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <section id="contact">
     <div class="wrap">
       <div class="contact">
-        <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+        <div class="contact-intro">
           <span class="eyebrow" style="color:var(--mark)">Free audit</span>
           <h2>Let's see where your site stands.</h2>
-          <p>Send me your website address and the searches you want to show up for. I'll reply within two business days.</p>
+          <p>Tell me about your business and what you want to rank for. I'll review your site and reply within two business days with the biggest opportunities I see.</p>
+          <ul class="perks"><li>No obligation</li><li>Reviewed personally by Amir</li><li>Google and AI search covered</li></ul>
         </div>
-        <div class="mail">
-          <span class="addr">hello@yourdomain.com</span>
-          <a class="btn" href="mailto:hello@yourdomain.com?subject=Free%20SEO%20audit">Email me</a>
-        </div>
+        <form class="lead-form" id="lead-form" novalidate>
+          <div class="row">
+            <label for="f-name">Name<input id="f-name" name="name" type="text" autocomplete="name" required maxlength="120"></label>
+            <label for="f-email">Work email<input id="f-email" name="email" type="email" autocomplete="email" required maxlength="200"></label>
+          </div>
+          <div class="row">
+            <label for="f-company">Company<input id="f-company" name="company" type="text" autocomplete="organization" maxlength="160"></label>
+            <label for="f-website">Website<input id="f-website" name="website" type="text" inputmode="url" placeholder="yourcompany.com" maxlength="200"></label>
+          </div>
+          <label for="f-service">What do you need help with?
+            <select id="f-service" name="service">
+              <option value="">Choose one</option>
+              <option>Technical SEO</option>
+              <option>AI &amp; LLM Visibility</option>
+              <option>Ecommerce &amp; Marketplace SEO</option>
+              <option>Local SEO</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label for="f-message">Your goals<textarea id="f-message" name="message" rows="4" required maxlength="4000" placeholder="Which searches do you want to show up for? Any recent traffic drops?"></textarea></label>
+          <label class="hp" aria-hidden="true">Leave empty<input id="f-hp" name="company_url" type="text" tabindex="-1" autocomplete="off"></label>
+          <button class="btn" id="f-submit" type="submit">Request my free audit</button>
+          <p class="form-status" id="f-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </div>
   </section>
@@ -414,6 +450,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   });
   document.querySelectorAll('.meter,.pillar').forEach(function(el){
     if(below(el)){el.classList.add('pre');io.observe(el)}
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var f=document.getElementById('lead-form');if(!f)return;
+  var st=document.getElementById('f-status'),btn=document.getElementById('f-submit');
+  function say(msg,cls){st.textContent=msg;st.className='form-status'+(cls?' '+cls:'')}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var req=['f-name','f-email','f-message'],bad=null;
+    req.forEach(function(id){var el=document.getElementById(id),v=el.value.trim(),ok=v.length>0;if(id==='f-email')ok=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v);el.setAttribute('aria-invalid',ok?'false':'true');if(!ok&&!bad)bad=el});
+    if(bad){say('Please add your name, a valid email and your goals.','err');bad.focus();return}
+    var data={};new FormData(f).forEach(function(v,k){data[k]=String(v).trim()});
+    btn.disabled=true;say('Sending…');
+    fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok)throw new Error(j.error||'Request failed');return j})})
+      .then(function(){f.reset();say('Thanks! Your request was received. I\'ll reply within two business days.','ok')})
+      .catch(function(err){say(err&&err.message&&err.message!=='Request failed'&&err.message!=='Failed to fetch'?err.message:'Your request could not be sent. Please try again in a moment.','err')})
+      .then(function(){btn.disabled=false});
   });
 })();
 </script>
