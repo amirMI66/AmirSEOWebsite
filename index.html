@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Amir SEO</title>
+<meta name="description" content="Amir helps small businesses and personal brands get found on Google with technical SEO, on-page optimization and local search.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single column that alternates a wide "results page" band with narrow reading sections; the hero pairs the pitch with a live-looking search result. */
+:root{
+  --bg:#f3f6f5; --surface:#ffffff; --ink:#132326; --muted:#566b6e; --line:#d6e0de;
+  --accent:#0d6b5c; --accent-ink:#ffffff; --mark:#ffe58a; --url:#1a5d9e;
+  --good:#1d7a45; --warn:#9a6a00; --bad:#b3372c;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Public Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1718; --surface:#152224; --ink:#e4eeec; --muted:#98abad; --line:#27393b;
+  --accent:#4fc4ab; --accent-ink:#06201b; --mark:#5c4d10; --url:#8ab8ec;
+  --good:#5fcf8a; --warn:#e2b44a; --bad:#f08a80; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1718; --surface:#152224; --ink:#e4eeec; --muted:#98abad; --line:#27393b;
+  --accent:#4fc4ab; --accent-ink:#06201b; --mark:#5c4d10; --url:#8ab8ec;
+  --good:#5fcf8a; --warn:#e2b44a; --bad:#f08a80; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:68rem;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.02em}
+h1{font-size:clamp(2.4rem,5.6vw,4.2rem);font-weight:800}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:700}
+h3{font-size:1.2rem;font-weight:700;letter-spacing:-.01em}
+p{margin:0}
+.eyebrow{font:500 .75rem/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--accent)}
+.lede{color:var(--muted);font-size:1.15rem;max-width:34rem}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{font:800 1.25rem/1 var(--display);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand i{width:26px;height:26px;border-radius:50%;border:3px solid var(--accent);position:relative;display:inline-block}
+.brand i::after{content:"";position:absolute;width:10px;height:3px;background:var(--accent);right:-9px;bottom:-4px;transform:rotate(45deg);border-radius:2px}
+nav{display:flex;gap:22px;align-items:center;font-size:.95rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;padding:12px 20px;border-radius:999px;border:0;font-size:1rem;cursor:pointer;transition:transform .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn.small{padding:9px 16px;font-size:.9rem}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+@media (max-width:720px){nav a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding-block:clamp(48px,8vw,96px) clamp(40px,6vw,72px)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px);align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--mark) 62%)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+
+/* SERP card */
+.serp{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 24px 60px -30px rgba(10,40,40,.35);min-width:0}
+.searchbar{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.95rem;color:var(--ink)}
+.searchbar svg{flex:none;color:var(--muted)}
+.caret{display:inline-block;width:1px;height:1.05em;background:var(--ink);vertical-align:-2px;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.results{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column}
+.result{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:14px 4px;border-top:1px solid var(--line)}
+.result:first-child{border-top:0}
+.pos{font:500 .8rem/1 var(--mono);color:var(--muted);padding-top:4px;font-variant-numeric:tabular-nums}
+.result .site{font:.8rem/1.3 var(--body);color:var(--muted);overflow-wrap:anywhere}
+.result .t{font:500 1.05rem/1.3 var(--body);color:var(--url);margin:2px 0 4px}
+.result .d{font-size:.88rem;line-height:1.5;color:var(--muted)}
+.result.you{background:color-mix(in srgb,var(--accent) 9%,transparent);border-radius:12px;border-top-color:transparent}
+.result.you+.result{border-top-color:transparent}
+.result.you .pos{color:var(--accent);font-weight:500}
+.climb{display:inline-flex;align-items:center;gap:4px;font:500 .72rem/1 var(--mono);color:var(--good);margin-left:8px}
+.ghost-line{height:9px;border-radius:5px;background:var(--line);margin:6px 0}
+.serp-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:.75rem/1.4 var(--mono);color:var(--muted);padding:10px 4px 0;border-top:1px dashed var(--line);margin-top:6px}
+
+/* sections */
+section{padding-block:clamp(56px,8vw,96px)}
+.sec-head{display:flex;flex-direction:column;gap:14px;margin-bottom:40px;max-width:40rem}
+.band{background:var(--surface);border-block:1px solid var(--line)}
+
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.svc{background:var(--surface);padding:28px;display:flex;flex-direction:column;gap:12px}
+.svc .tag{font:500 .72rem/1 var(--mono);color:var(--muted);letter-spacing:.06em}
+.svc ul{margin:4px 0 0;padding-left:1.1em;color:var(--muted);font-size:.95rem;display:grid;gap:4px}
+@media (max-width:720px){.services{grid-template-columns:1fr}}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;counter-reset:s}
+.steps li{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:2px solid var(--ink);counter-increment:s}
+.steps li::before{content:"Step " counter(s);font:500 .75rem/1 var(--mono);color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+.steps p{color:var(--muted);font-size:.95rem}
+.steps .when{font:.8rem/1.3 var(--mono);color:var(--ink)}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+.vitals-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(28px,5vw,56px);align-items:start}
+.vitals-grid .sec-head{margin-bottom:0}
+@media (max-width:860px){.vitals-grid{grid-template-columns:1fr}}
+.vital{display:grid;grid-template-columns:5.5rem 1fr;gap:6px 18px;padding:20px 0;border-top:1px solid var(--line)}
+.vital:last-child{border-bottom:1px solid var(--line)}
+.vital b{font:700 1.5rem/1 var(--display)}
+.vital .name{font-weight:600}
+.vital .desc{grid-column:2;color:var(--muted);font-size:.93rem}
+.meter{grid-column:2;display:grid;grid-template-columns:var(--g) var(--n) 1fr;height:8px;border-radius:4px;overflow:hidden;margin-top:6px}
+.meter span:nth-child(1){background:var(--good)}
+.meter span:nth-child(2){background:var(--warn)}
+.meter span:nth-child(3){background:var(--bad)}
+.scale{grid-column:2;display:flex;justify-content:space-between;font:.72rem/1 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+
+.about{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,5vw,56px);align-items:start}
+.avatar{width:clamp(96px,16vw,160px);aspect-ratio:1;max-width:100%;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:800 clamp(2.4rem,5vw,3.8rem)/1 var(--display)}
+.about-copy{display:flex;flex-direction:column;gap:16px;max-width:40rem;min-width:0}
+.about-copy p{color:var(--muted)}
+@media (max-width:600px){.about{grid-template-columns:1fr}}
+
+.faq{display:grid;gap:0;max-width:46rem}
+.faq details{border-top:1px solid var(--line);padding:18px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:500 1.3rem/1 var(--mono);color:var(--accent)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--muted);margin-top:10px}
+
+.contact{background:var(--ink);color:var(--bg);border-radius:24px;padding:clamp(28px,6vw,64px);display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.contact h2{color:var(--bg)}
+.contact p{color:color-mix(in srgb,var(--bg) 75%,var(--ink))}
+.contact .mail{display:flex;flex-direction:column;gap:12px;min-width:0}
+.contact .addr{font:500 1.05rem/1.3 var(--mono);color:var(--bg);overflow-wrap:anywhere;user-select:all}
+.contact .btn{background:var(--bg);color:var(--ink);align-self:flex-start}
+@media (max-width:760px){.contact{grid-template-columns:1fr}}
+
+footer{padding-block:32px 48px;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><i aria-hidden="true"></i>Amir SEO</a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn small" href="#contact">Get a free audit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">Independent SEO consultant</span>
+        <h1>Get found by the people <em>already searching</em> for you.</h1>
+        <p class="lede">I help small businesses and personal brands climb Google's results with technical fixes, better pages and local search, and I report every change in plain language.</p>
+        <div class="cta-row">
+          <a class="btn" href="#contact">Get a free audit</a>
+          <a class="btn ghost" href="#services">See services</a>
+        </div>
+      </div>
+
+      <div class="serp" aria-label="Example search result showing your site ranked first">
+        <div class="searchbar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span>plumber near me<span class="caret" aria-hidden="true"></span></span>
+        </div>
+        <ol class="results">
+          <li class="result you">
+            <span class="pos">#1</span>
+            <div>
+              <div class="site">yourbusiness.com › services <span class="climb">▲ 13 positions</span></div>
+              <div class="t">Licensed Plumber · Same-Day Repairs</div>
+              <div class="d">Emergency leaks, water heaters and drain clearing. Upfront pricing, open 7 days.</div>
+            </div>
+          </li>
+          <li class="result">
+            <span class="pos">#2</span>
+            <div><div class="ghost-line" style="width:45%"></div><div class="ghost-line" style="width:80%"></div><div class="ghost-line" style="width:65%"></div></div>
+          </li>
+          <li class="result">
+            <span class="pos">#3</span>
+            <div><div class="ghost-line" style="width:38%"></div><div class="ghost-line" style="width:72%"></div><div class="ghost-line" style="width:58%"></div></div>
+          </li>
+        </ol>
+        <div class="serp-foot"><span>Illustration: where the work aims</span><span>was #14 → now #1</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Services</span>
+        <h2>Four ways I can help your site rank</h2>
+        <p class="lede">Most projects start with an audit. From there, I fix what matters most first.</p>
+      </div>
+      <div class="services">
+        <article class="svc">
+          <span class="tag">TECHNICAL</span>
+          <h3>Technical SEO audit</h3>
+          <p>A full check of how Google crawls, renders and indexes your site, with a ranked list of fixes.</p>
+          <ul><li>Crawl errors, redirects and broken links</li><li>Indexing, canonicals and sitemaps</li><li>Page speed and Core Web Vitals</li></ul>
+        </article>
+        <article class="svc">
+          <span class="tag">ON-PAGE</span>
+          <h3>On-page and content</h3>
+          <p>Pages written and structured around what your customers actually search for.</p>
+          <ul><li>Keyword research and search intent</li><li>Title tags, meta descriptions and headings</li><li>Internal linking and content gaps</li></ul>
+        </article>
+        <article class="svc">
+          <span class="tag">LOCAL</span>
+          <h3>Local SEO</h3>
+          <p>Show up in the map pack and "near me" searches in the areas you serve.</p>
+          <ul><li>Google Business Profile setup and tuning</li><li>Local citations and consistent NAP details</li><li>Review strategy and location pages</li></ul>
+        </article>
+        <article class="svc">
+          <span class="tag">ONGOING</span>
+          <h3>Monthly SEO</h3>
+          <p>Steady improvements each month, with rankings and traffic tracked in a report you can read in five minutes.</p>
+          <ul><li>Rank tracking for your target keywords</li><li>Search Console and analytics reporting</li><li>New content and fixes every month</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Process</span>
+        <h2>How we work together</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Audit</h3><p>I review your site, Search Console data and top competitors.</p><span class="when">Week 1</span></li>
+        <li><h3>Prioritize</h3><p>You get a short plan ranked by impact and effort, not a 90-page PDF.</p><span class="when">Week 2</span></li>
+        <li><h3>Implement</h3><p>I make the fixes, or work alongside your developer.</p><span class="when">Weeks 3–8</span></li>
+        <li><h3>Measure</h3><p>We track rankings, clicks and leads, then plan the next round.</p><span class="when">Monthly</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap vitals-grid">
+      <div class="sec-head">
+        <span class="eyebrow">What I measure</span>
+        <h2>Speed is a ranking signal. I check yours against Google's thresholds.</h2>
+        <p class="lede">Core Web Vitals measure how fast and stable your pages feel to real visitors. These are the targets every audit tests.</p>
+      </div>
+      <div>
+        <div class="vital">
+          <b>LCP</b><span class="name">Largest Contentful Paint</span>
+          <span class="desc">How long the main content takes to appear.</span>
+          <span class="meter" style="--g:2.5fr;--n:1.5fr" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="scale"><span>0s</span><span>good ≤ 2.5s</span><span>poor &gt; 4s</span></span>
+        </div>
+        <div class="vital">
+          <b>INP</b><span class="name">Interaction to Next Paint</span>
+          <span class="desc">How quickly the page responds to a tap or click.</span>
+          <span class="meter" style="--g:2fr;--n:3fr" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="scale"><span>0ms</span><span>good ≤ 200ms</span><span>poor &gt; 500ms</span></span>
+        </div>
+        <div class="vital">
+          <b>CLS</b><span class="name">Cumulative Layout Shift</span>
+          <span class="desc">How much the page jumps around while loading.</span>
+          <span class="meter" style="--g:1fr;--n:1.5fr" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="scale"><span>0</span><span>good ≤ 0.1</span><span>poor &gt; 0.25</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div class="avatar" aria-hidden="true">A</div>
+      <div class="about-copy">
+        <span class="eyebrow">About</span>
+        <h2>Hi, I'm Amir.</h2>
+        <p>I'm an SEO specialist who works directly with business owners. When you hire me, you talk to the person doing the work, not an account manager.</p>
+        <p>I focus on the fixes that move rankings and leads, and I explain each one so you understand what changed and why. No long contracts and no jargon-filled reports.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Common questions</h2>
+      </div>
+      <div class="faq">
+        <details open><summary>How long until I see results?</summary><p>Technical fixes can show up within a few weeks. Rankings for competitive keywords usually build over three to six months. I'll give you a realistic timeline after the audit.</p></details>
+        <details><summary>Do you guarantee a #1 ranking?</summary><p>No. Nobody controls Google's results, and anyone who guarantees a position is guessing. I guarantee clear work, honest reporting and a plan based on your data.</p></details>
+        <details><summary>Do I need to change my website platform?</summary><p>Almost never. I work with WordPress, Shopify, Wix, Squarespace, Webflow and custom sites.</p></details>
+        <details><summary>What does the free audit include?</summary><p>A quick review of your site's top issues and biggest opportunities, delivered on a short call. There's no obligation to continue.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+          <span class="eyebrow" style="color:var(--mark)">Free audit</span>
+          <h2>Let's see where your site stands.</h2>
+          <p>Send me your website address and the searches you want to show up for. I'll reply within two business days.</p>
+        </div>
+        <div class="mail">
+          <span class="addr">hello@yourdomain.com</span>
+          <a class="btn" href="mailto:hello@yourdomain.com?subject=Free%20SEO%20audit">Email me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Amir SEO</span>
+    <span>Independent SEO consulting</span>
+  </div>
+</footer>
+
+</body>
+</html>
