@@ -18,21 +18,21 @@
 <style>
 /* Layout: single column that alternates a wide "results page" band with narrow reading sections; the hero pairs the pitch with a live-looking search result. */
 :root{
-  --bg:#f4f5f9; --surface:#ffffff; --ink:#111a33; --muted:#5a6380; --line:#dadeea;
-  --accent:#2448c9; --accent-ink:#ffffff; --mark:#ffd27a; --url:#1a0dab;
-  --good:#1d7a45; --warn:#9a6a00; --bad:#b3372c;
+  --bg:#f5f5f3; --surface:#ffffff; --ink:#161616; --muted:#62625e; --line:#e0e0dc;
+  --accent:#161616; --accent-ink:#ffffff; --mark:#dcdcd6; --url:#2b2b2b;
+  --good:#3f6b4f; --warn:#8a7340; --bad:#8f4a43;
   --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
   --body:"Public Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0c1122; --surface:#141b33; --ink:#e7eaf5; --muted:#9aa3c0; --line:#26304f;
-  --accent:#8ea8ff; --accent-ink:#0c1433; --mark:#6b4a12; --url:#9fb6ff;
-  --good:#5fcf8a; --warn:#e2b44a; --bad:#f08a80; color-scheme:dark}}
+  --bg:#121212; --surface:#1b1b1b; --ink:#ececea; --muted:#a0a09b; --line:#2c2c2a;
+  --accent:#ececea; --accent-ink:#121212; --mark:#3d3d3a; --url:#dcdcd8;
+  --good:#8fb89c; --warn:#c9b27c; --bad:#c98d86; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0c1122; --surface:#141b33; --ink:#e7eaf5; --muted:#9aa3c0; --line:#26304f;
-  --accent:#8ea8ff; --accent-ink:#0c1433; --mark:#6b4a12; --url:#9fb6ff;
-  --good:#5fcf8a; --warn:#e2b44a; --bad:#f08a80; color-scheme:dark}
+  --bg:#121212; --surface:#1b1b1b; --ink:#ececea; --muted:#a0a09b; --line:#2c2c2a;
+  --accent:#ececea; --accent-ink:#121212; --mark:#3d3d3a; --url:#dcdcd8;
+  --good:#8fb89c; --warn:#c9b27c; --bad:#c98d86; color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -72,7 +72,7 @@ nav a:hover{color:var(--ink)}
 @media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
 
 /* SERP card */
-.serp{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 24px 60px -30px rgba(17,26,51,.35);min-width:0}
+.serp{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 24px 60px -30px rgba(0,0,0,.28);min-width:0}
 .searchbar{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:.95rem;color:var(--ink)}
 .searchbar svg{flex:none;color:var(--muted)}
 .caret{display:inline-block;width:1px;height:1.05em;background:var(--ink);vertical-align:-2px;margin-left:1px;animation:blink 1s steps(1) infinite}
