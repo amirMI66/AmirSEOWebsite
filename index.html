@@ -107,6 +107,31 @@ section{padding-block:clamp(56px,8vw,96px)}
 .svc li::marker{color:var(--c)}
 @media (max-width:720px){.services{grid-template-columns:1fr}}
 
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:820px){.duo{grid-template-columns:1fr}}
+.pillar{--c:var(--blue);position:relative;overflow:hidden;border-radius:22px;padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:18px;min-width:0;background:#ffffff;border:1px solid var(--line)}
+.pillar::before{content:"";position:absolute;inset:auto -20% 55% auto;width:26rem;height:26rem;border-radius:50%;background:radial-gradient(closest-side,color-mix(in srgb,var(--c) 18%,transparent),transparent);pointer-events:none}
+.pillar>*{position:relative}
+.pillar.ai{--c:var(--violet);background:#111114;color:#f3f3f1;border-color:#111114}
+.pillar.ai::before{background:radial-gradient(closest-side,color-mix(in srgb,var(--violet) 55%,transparent),transparent)}
+.pillar .kicker{align-self:flex-start;font:500 .72rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c);background:color-mix(in srgb,var(--c) 13%,transparent);padding:6px 10px;border-radius:999px}
+.pillar.ai .kicker{color:#c9b5ff;background:color-mix(in srgb,var(--violet) 30%,transparent)}
+.stat{display:flex;flex-direction:column;gap:6px}
+.stat b{font:800 clamp(2.8rem,6vw,4.4rem)/.95 var(--display);letter-spacing:-.03em;color:var(--c);font-variant-numeric:tabular-nums}
+.pillar.ai .stat b{color:#b89cff}
+.stat span{font-size:.98rem;color:var(--muted)}
+.pillar.ai .stat span,.pillar.ai p,.pillar.ai li{color:#c4c4c8}
+.substats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding-block:16px;border-block:1px solid color-mix(in srgb,currentColor 14%,transparent)}
+.substats div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.substats strong{font:700 1.35rem/1.1 var(--display);font-variant-numeric:tabular-nums}
+.substats small{font-size:.82rem;line-height:1.4;color:var(--muted)}
+.pillar.ai .substats small{color:#a9a9ae}
+.pillar ul{margin:0;padding-left:1.1em;display:grid;gap:6px;font-size:.95rem;color:var(--muted)}
+.pillar li::marker{color:var(--c)}
+.pillar.ai li::marker{color:#b89cff}
+.src{font:.72rem/1.5 var(--mono);color:var(--muted)}
+.pillar.ai .src{color:#8e8e94}
+.src a{color:inherit}
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;counter-reset:s}
 .steps li{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:4px solid var(--c,var(--ink));counter-increment:s}
 .steps li:nth-child(1){--c:var(--blue)}.steps li:nth-child(2){--c:var(--green)}.steps li:nth-child(3){--c:var(--orange)}.steps li:nth-child(4){--c:var(--violet)}
@@ -170,6 +195,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <a class="brand" href="#top"><i aria-hidden="true"></i>Amir SEO</a>
     <nav aria-label="Main">
       <a href="#services">Services</a>
+      <a href="#search">AI SEO</a>
       <a href="#process">Process</a>
       <a href="#about">About</a>
       <a href="#faq">FAQ</a>
@@ -250,6 +276,42 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <h3>Monthly SEO</h3>
           <p>Steady improvements each month, with rankings and traffic tracked in a report you can read in five minutes.</p>
           <ul><li>Rank tracking for your target keywords</li><li>Search Console and analytics reporting</li><li>New content and fixes every month</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="search" style="--sec:var(--violet)">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Traditional + AI search</span>
+        <h2>Your customers search in two places now. You need to show up in both.</h2>
+        <p class="lede">Google is still where most searches happen, and AI assistants are quickly becoming the second front door. I optimize for both.</p>
+      </div>
+      <div class="duo">
+        <article class="pillar">
+          <span class="kicker">Traditional SEO</span>
+          <h3>Rank on Google</h3>
+          <div class="stat"><b>5 trillion+</b><span>searches on Google every year</span></div>
+          <div class="substats">
+            <div><strong>~13.7 billion</strong><small>searches a day, on average</small></div>
+            <div><strong>#1 source</strong><small>of organic traffic for most websites</small></div>
+          </div>
+          <p>Classic search is still the largest and highest-intent source of customers. People who search are already looking to buy, book or compare.</p>
+          <ul><li>Technical SEO and site health</li><li>Keyword strategy and on-page optimization</li><li>Local search and Google Business Profile</li><li>Authority and link building</li></ul>
+          <p class="src">Source: Google, March 2025. Daily figure is the annual total divided by 365.</p>
+        </article>
+        <article class="pillar ai">
+          <span class="kicker">AI SEO</span>
+          <h3>Get cited by AI</h3>
+          <div class="stat"><b>900 billion+</b><span>prompts sent to ChatGPT every year</span></div>
+          <div class="substats">
+            <div><strong>2.5 billion+</strong><small>ChatGPT prompts a day</small></div>
+            <div><strong>2 billion+</strong><small>monthly users see Google AI Overviews</small></div>
+          </div>
+          <p>AI answers now recommend brands directly. If ChatGPT, Perplexity or Google's AI Overviews don't mention you, a growing share of buyers never see you.</p>
+          <ul><li>Visibility in ChatGPT, Perplexity, Gemini and AI Overviews</li><li>Content structured so AI can quote and cite it</li><li>Schema markup and entity optimization</li><li>Brand mentions across trusted sources</li></ul>
+          <p class="src">Sources: OpenAI via TechCrunch, July 2025 (annual figure is daily × 365); Google Q2 2025 earnings.</p>
         </article>
       </div>
     </div>
