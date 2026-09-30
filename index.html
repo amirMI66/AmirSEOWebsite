@@ -20,19 +20,12 @@
 :root{
   --bg:#e8e8e6; --surface:#f3f3f1; --ink:#000000; --muted:#4a4a47; --line:#d0d0cc;
   --accent:#000000; --accent-ink:#ffffff; --mark:#cfcfca; --url:#000000;
-  --good:#2f2f2d; --warn:#8a8a85; --bad:#cfcfca;
+  --good:#2f2f2d; --warn:#8a8a85; --bad:#bdbdb8;
+  color-scheme:light;
   --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
   --body:"Public Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#121212; --surface:#1b1b1b; --ink:#ececea; --muted:#a0a09b; --line:#2c2c2a;
-  --accent:#ececea; --accent-ink:#121212; --mark:#3d3d3a; --url:#dcdcd8;
-  --good:#e6e6e2; --warn:#8f8f8a; --bad:#454542; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#121212; --surface:#1b1b1b; --ink:#ececea; --muted:#a0a09b; --line:#2c2c2a;
-  --accent:#ececea; --accent-ink:#121212; --mark:#3d3d3a; --url:#dcdcd8;
-  --good:#e6e6e2; --warn:#8f8f8a; --bad:#454542; color-scheme:dark}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
