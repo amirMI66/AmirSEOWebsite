@@ -261,6 +261,30 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cal-empty p{color:var(--muted)}
 .cal-empty a{color:var(--ink);font-weight:600}
 .c-form-wrap .lead-form{border:1px solid var(--line)}
+/* --- illustrations --- */
+.svc .illus{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:320/132;border-radius:14px;margin-bottom:6px;box-shadow:0 1px 0 color-mix(in srgb,var(--c) 18%,transparent),0 10px 24px -18px rgba(0,0,0,.35)}
+.flow{position:relative}
+.steps .ico{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--c);color:#ffffff;box-shadow:0 10px 20px -12px var(--c);position:relative;z-index:1}
+.steps li{border-top:0;padding-top:0}
+.steps li::before{order:1}
+.steps .ico{order:0}
+.steps h3,.steps p{order:2}
+.flow-line{position:absolute;left:26px;right:calc((100% - 72px)/4 - 26px);top:26px;height:3px;background:linear-gradient(90deg,var(--blue),var(--green),var(--orange),var(--violet));border-radius:2px;opacity:.35}
+.loop{display:flex;align-items:center;gap:10px;margin-top:26px;color:var(--muted);font-size:.92rem}
+.loop svg{flex:none;color:var(--violet)}
+@media (max-width:860px){.flow-line{display:none}}
+.next{padding-block:8px clamp(28px,4vw,40px)}
+.next h2{margin-bottom:22px}
+.next ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;position:relative;counter-reset:n}
+.next ol::before{content:"";position:absolute;left:22px;right:22px;top:22px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--green),var(--orange),var(--violet));opacity:.35}
+.next li{--c:var(--blue);display:flex;flex-direction:column;gap:8px;min-width:0;counter-increment:n}
+.next li:nth-child(2){--c:var(--green)}.next li:nth-child(3){--c:var(--orange)}.next li:nth-child(4){--c:var(--violet)}
+.next .ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--c);color:#fff;position:relative;z-index:1;box-shadow:0 10px 20px -12px var(--c)}
+.next h3{font-size:1.05rem}
+.next h3::before{content:counter(n) ". ";color:var(--c)}
+.next p{color:var(--muted);font-size:.93rem}
+@media (max-width:820px){.next ol{grid-template-columns:repeat(2,minmax(0,1fr))}.next ol::before{display:none}}
+@media (max-width:440px){.next ol{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -368,21 +392,85 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
       <div class="services">
         <article class="svc">
+          <svg class="illus" viewBox="0 0 320 132" role="img" aria-label="Site structure tree with every page checked">
+  <rect x="0" y="0" width="320" height="132" rx="14" fill="#ffffff"/>
+  <g stroke-width="2" fill="none" stroke-linecap="round" opacity=".55" style="stroke:var(--c)">
+    <path d="M160 34v14M160 48H72v14M160 48h88v14M160 48v14"/>
+    <path d="M72 82v10M72 92H44v8M72 92h28v8M248 82v10M248 92h-26v8M248 92h28v8"/>
+  </g>
+  <rect x="132" y="12" width="56" height="22" rx="7" style="fill:var(--c)"/>
+  <rect x="146" y="20" width="28" height="6" rx="3" fill="#ffffff"/>
+  <g stroke-width="1.5" style="fill:color-mix(in srgb,var(--c) 14%,#fff);stroke:color-mix(in srgb,var(--c) 45%,#fff)">
+    <rect x="48" y="62" width="48" height="20" rx="6"/><rect x="136" y="62" width="48" height="20" rx="6"/><rect x="224" y="62" width="48" height="20" rx="6"/>
+    <rect x="28" y="100" width="32" height="18" rx="5"/><rect x="84" y="100" width="32" height="18" rx="5"/>
+    <rect x="206" y="100" width="32" height="18" rx="5"/><rect x="260" y="100" width="32" height="18" rx="5"/>
+  </g>
+  <g style="fill:color-mix(in srgb,var(--c) 40%,#fff)"><rect x="58" y="69" width="28" height="6" rx="3"/><rect x="146" y="69" width="28" height="6" rx="3"/><rect x="234" y="69" width="28" height="6" rx="3"/></g>
+  <circle cx="290" cy="22" r="13" fill="#15935d"/>
+  <path d="M284 22l4 4 8-8" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
           <h3>Technical SEO</h3>
           <p>A strong technical foundation so search engines and AI crawlers can find, render and understand every important page.</p>
           <ul><li>Crawling, indexing and site architecture</li><li>Page speed and Core Web Vitals</li><li>Site migrations and redirect mapping</li><li>Structured data and schema markup</li></ul>
         </article>
         <article class="svc">
+          <svg class="illus" viewBox="0 0 320 132" role="img" aria-label="AI assistant answer citing your brand as a source">
+  <rect x="0" y="0" width="320" height="132" rx="14" fill="#ffffff"/>
+  <rect x="150" y="12" width="156" height="28" rx="14" fill="#efefec"/>
+  <rect x="164" y="23" width="96" height="6" rx="3" fill="#b9b9b4"/><rect x="266" y="23" width="26" height="6" rx="3" fill="#b9b9b4"/>
+  <circle cx="26" cy="62" r="12" style="fill:var(--c)"/>
+  <path d="M26 55.5c.5 3 1.9 4.4 4.9 4.9-3 .5-4.4 1.9-4.9 4.9-.5-3-1.9-4.4-4.9-4.9 3-.5 4.4-1.9 4.9-4.9z" fill="#ffffff"/>
+  <rect x="46" y="50" width="260" height="70" rx="14" stroke-width="1.5" style="fill:color-mix(in srgb,var(--c) 9%,#fff);stroke:color-mix(in srgb,var(--c) 30%,#fff)"/>
+  <g style="fill:color-mix(in srgb,var(--c) 35%,#fff)"><rect x="60" y="62" width="200" height="6" rx="3"/><rect x="60" y="74" width="168" height="6" rx="3"/></g>
+  <rect x="60" y="90" width="132" height="20" rx="10" fill="#ffffff" stroke-width="1.6" style="stroke:var(--c)"/>
+  <rect x="66" y="94" width="12" height="12" rx="3" fill="#111114"/>
+  <path d="M69 104l3-7 3 7" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="84" y="104" font-size="10" font-weight="700" fill="#111114" style="font-family:var(--body)">amirmirsaeid.ca</text>
+  <rect x="200" y="90" width="40" height="20" rx="10" fill="#efefec"/><rect x="246" y="90" width="40" height="20" rx="10" fill="#efefec"/>
+</svg>
           <h3>AI &amp; LLM Visibility</h3>
           <p>Get your brand mentioned, cited and recommended in AI-generated answers, not just ranked in blue links.</p>
           <ul><li>Visibility in ChatGPT, Perplexity, Gemini and Google AI Overviews</li><li>Content structured for AI answers and citations</li><li>Entity optimization and brand mentions across trusted sources</li><li>Tracking how often AI platforms cite your brand</li></ul>
         </article>
         <article class="svc">
+          <svg class="illus" viewBox="0 0 320 132" role="img" aria-label="Product search result with star rating, price and stock status">
+  <rect x="0" y="0" width="320" height="132" rx="14" fill="#ffffff"/>
+  <rect x="14" y="14" width="104" height="104" rx="12" style="fill:color-mix(in srgb,var(--c) 14%,#fff)"/>
+  <path d="M42 86l16-22 12 14 8-9 14 17z" style="fill:color-mix(in srgb,var(--c) 55%,#fff)"/>
+  <circle cx="88" cy="44" r="8" style="fill:color-mix(in srgb,var(--c) 45%,#fff)"/>
+  <rect x="134" y="18" width="150" height="9" rx="4.5" fill="#1d4ed8" opacity=".75"/>
+  <rect x="134" y="33" width="104" height="9" rx="4.5" fill="#1d4ed8" opacity=".45"/>
+  <g fill="#f5b301">
+    <path id="st" d="M140 52l2.35 4.76 5.25.77-3.8 3.7.9 5.23L140 63.99l-4.7 2.47.9-5.23-3.8-3.7 5.25-.77z"/>
+    <use href="#st" x="16"/><use href="#st" x="32"/><use href="#st" x="48"/><use href="#st" x="64"/>
+  </g>
+  <rect x="214" y="55" width="40" height="8" rx="4" fill="#d6d6d1"/>
+  <text x="134" y="94" font-size="20" font-weight="800" fill="#111114" style="font-family:var(--display)">$129</text>
+  <rect x="190" y="80" width="62" height="18" rx="9" fill="#e3f3ea"/>
+  <text x="221" y="93" text-anchor="middle" font-size="10" font-weight="700" fill="#15935d" style="font-family:var(--body)">In stock</text>
+  <rect x="134" y="106" width="120" height="6" rx="3" fill="#e0e0dc"/>
+</svg>
           <h3>Ecommerce &amp; Marketplace SEO</h3>
           <p>More qualified traffic to your product and category pages, on your own store and on the marketplaces where your customers shop.</p>
           <ul><li>Product and category page optimization</li><li>Faceted navigation and duplicate content control</li><li>Product schema, rich results and shopping feeds</li><li>Marketplace listing optimization</li></ul>
         </article>
         <article class="svc">
+          <svg class="illus" viewBox="0 0 320 132" role="img" aria-label="Map with your business pin highlighted among nearby results">
+  <rect x="0" y="0" width="320" height="132" rx="14" style="fill:color-mix(in srgb,var(--c) 7%,#fff)"/>
+  <g stroke="#ffffff" stroke-width="9" stroke-linecap="round" fill="none">
+    <path d="M-5 92C60 80 110 104 170 86S270 40 330 52"/><path d="M96 -5c6 40 2 90-10 140"/><path d="M226 -5c-8 50 8 94 20 140"/>
+  </g>
+  <rect x="244" y="88" width="40" height="28" rx="6" fill="#d9eedd"/><rect x="18" y="16" width="52" height="30" rx="6" fill="#d9eedd"/>
+  <g fill="#c4c4bf">
+    <path d="M48 70a9 9 0 0 1 18 0c0 7-9 15-9 15s-9-8-9-15z"/><path d="M262 34a9 9 0 0 1 18 0c0 7-9 15-9 15s-9-8-9-15z"/>
+  </g>
+  <ellipse cx="160" cy="98" rx="16" ry="4" fill="rgba(0,0,0,.12)"/>
+  <path d="M142 52a18 18 0 0 1 36 0c0 14-18 44-18 44s-18-30-18-44z" style="fill:var(--c)"/>
+  <circle cx="160" cy="52" r="9.5" fill="#ffffff"/>
+  <path d="M155.5 57l4.5-10 4.5 10" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--c)"/>
+  <rect x="178" y="12" width="96" height="22" rx="11" fill="#ffffff" stroke-width="1.5" style="stroke:var(--c)"/>
+  <text x="226" y="27" text-anchor="middle" font-size="10" font-weight="700" style="font-family:var(--body);fill:var(--c)">★ 4.9 · Open</text>
+</svg>
           <h3>Local SEO</h3>
           <p>Show up in the map pack and "near me" searches in every area you serve.</p>
           <ul><li>Google Business Profile setup and optimization</li><li>Location pages and local content</li><li>Local citations and consistent business details</li><li>Review strategy and reputation signals</li></ul>
@@ -398,12 +486,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <span class="eyebrow">Process</span>
         <h2>How we work together</h2>
       </div>
+      <div class="flow"><span class="flow-line" aria-hidden="true"></span>
       <ol class="steps">
-        <li><h3>Audit</h3><p>I review your site, Search Console data and top competitors.</p></li>
-        <li><h3>Prioritize</h3><p>You get a short plan ranked by impact and effort, not a 90-page PDF.</p></li>
-        <li><h3>Implement</h3><p>I make the fixes, or work alongside your developer.</p></li>
-        <li><h3>Measure</h3><p>We track rankings, clicks and leads, then plan the next round.</p></li>
-      </ol>
+        <li><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m20 20-5-5"/></svg></span><h3>Audit</h3><p>I review your site, Search Console data and top competitors.</p></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h11M4 18h6"/></svg></span><h3>Prioritize</h3><p>You get a short plan ranked by impact and effort, not a 90-page PDF.</p></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3.6 17.4a1.4 1.4 0 0 0 2 2l5.7-5.7a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2z"/></svg></span><h3>Implement</h3><p>I make the fixes, or work alongside your developer.</p></li>
+        <li><span class="ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19h16"/><path d="M5 15l5-5 4 3 6-7"/><path d="M15 6h5v5"/></svg></span><h3>Measure</h3><p>We track rankings, clicks and leads, then plan the next round.</p></li>
+      </ol></div>
+      <p class="loop"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v5h-5"/></svg>Then the cycle repeats: every round of results shapes the next audit.</p>
     </div>
   </section>
 
