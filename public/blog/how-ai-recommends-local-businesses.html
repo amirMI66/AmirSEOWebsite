@@ -298,13 +298,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .post p+p{margin-top:14px}
 .post ul,.post ol{padding-left:1.2em;display:grid;gap:8px;margin:14px 0}
 .post a{color:var(--blue)}
-.tldr{background:#ffffff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:14px;padding:20px 22px;margin:26px 0 10px}
-.tldr strong{display:block;margin-bottom:6px;font-family:var(--display)}
-.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0}
-@media (max-width:640px){.tiles{grid-template-columns:1fr 1fr}}
-.tile{background:#ffffff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.tile b{font:800 clamp(1.6rem,3.4vw,2.1rem)/1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
-.tile span{font-size:.88rem;color:var(--muted);line-height:1.45}
+.tldr{background:#111111;color:#f3f3f1;border-radius:18px;padding:24px 24px 20px;margin:28px 0 14px;position:relative;overflow:hidden}
+.tldr::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,var(--blue),var(--violet),var(--orange),var(--yellow))}
+.tldr strong{display:block;margin-bottom:12px;font-family:var(--display);font-size:1.12rem;color:#ffffff}
+.post .tldr ul{list-style:none;padding:0;margin:0;gap:12px}
+.post .tldr li{display:flex;gap:12px;align-items:baseline;font-size:1rem;line-height:1.55;color:#dcdcd8}
+.tldr li b{color:#ffffff}
+.tldr .k{flex:none;width:10px;height:10px;border-radius:50%;background:var(--c);transform:translateY(-1px)}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 30px}
+@media (max-width:640px){.tiles{grid-template-columns:1fr}}
+.tile{background:#ffffff;border:1px solid var(--line);border-top:5px solid var(--c);border-radius:14px;padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.tile b{font:800 clamp(1.9rem,3.6vw,2.3rem)/1 var(--display);color:var(--c);font-variant-numeric:tabular-nums}
+.tile span{font-size:.9rem;color:var(--muted);line-height:1.45}
+
 figure.chart{margin:24px 0;background:#ffffff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 12px}
 figure.chart figcaption{font-size:.86rem;color:var(--muted);margin-top:8px}
 figure.chart .ct{font-family:var(--display);font-weight:700;font-size:1.02rem;margin-bottom:10px;color:var(--ink)}
@@ -371,15 +377,21 @@ details.more summary{cursor:pointer;font-weight:700}
       <p>More people now ask ChatGPT "who's the best plumber near me?" instead of typing it into Google. So I wanted to know: does AI recommend the same businesses Google does? And if not, what decides who gets named?</p>
       <p>I ran 30 local searches across 10 industries in one large Canadian city, on ChatGPT and on Google, on the same day, and compared every business each one recommended.</p>
 
-      <div class="tldr"><strong>Key findings at a glance</strong>Only 15% of the businesses ChatGPT recommended also appeared in Google's map pack for the same search. In 11 of the 20 searches where Google showed a map pack, the two had no business in common at all. Ranking well on Google Maps does not mean AI will recommend you.</div>
+      <div class="tldr">
+        <strong>Key findings at a glance</strong>
+        <ul>
+          <li><span class="k" style="--c:var(--blue)"></span><span>In 11 of 20 searches with a map pack, ChatGPT and Google had <b>no business in common</b>.</span></li>
+          <li><span class="k" style="--c:var(--orange)"></span><span>ChatGPT's #1 pick was in Google's map pack in only <b>2 of 20</b> searches.</span></li>
+          <li><span class="k" style="--c:var(--violet)"></span><span>Rewording the question changed the answer: only <b>29%</b> of ChatGPT's picks repeated.</span></li>
+          <li><span class="k" style="--c:var(--green)"></span><span>Google showed an AI Overview on <b>all 30</b> searches.</span></li>
+          <li><span class="k" style="--c:var(--warn)"></span><span>Ranking well on Google Maps <b>does not mean AI will recommend you</b>.</span></li>
+        </ul>
+      </div>
 
       <div class="tiles">
-        <div class="tile"><b>15%</b><span>of ChatGPT's picks were also in Google's map pack (13 of 86)</span></div>
-        <div class="tile"><b>2 of 20</b><span>searches where ChatGPT's #1 pick was in the map pack</span></div>
-        <div class="tile"><b>30 of 30</b><span>searches showed a Google AI Overview</span></div>
-        <div class="tile"><b>29%</b><span>of ChatGPT's picks repeated when the question was reworded (27 of 93)</span></div>
-        <div class="tile"><b>48%</b><span>of Google's top organic results were directories, forums or media</span></div>
-        <div class="tile"><b>20 of 30</b><span>searches had Reddit in Google's top results</span></div>
+        <div class="tile" style="--c:var(--blue)"><b>15%</b><span>of ChatGPT's picks were also in Google's map pack (13 of 86)</span></div>
+        <div class="tile" style="--c:var(--orange)"><b>48%</b><span>of Google's top organic results were directories, forums or media</span></div>
+        <div class="tile" style="--c:var(--violet)"><b>20 of 30</b><span>searches had Reddit in Google's top results</span></div>
       </div>
 
       <h2>1. ChatGPT and Google's map pack mostly disagree</h2>

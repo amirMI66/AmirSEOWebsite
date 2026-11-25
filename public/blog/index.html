@@ -298,13 +298,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .post p+p{margin-top:14px}
 .post ul,.post ol{padding-left:1.2em;display:grid;gap:8px;margin:14px 0}
 .post a{color:var(--blue)}
-.tldr{background:#ffffff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:14px;padding:20px 22px;margin:26px 0 10px}
-.tldr strong{display:block;margin-bottom:6px;font-family:var(--display)}
-.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0}
-@media (max-width:640px){.tiles{grid-template-columns:1fr 1fr}}
-.tile{background:#ffffff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.tile b{font:800 clamp(1.6rem,3.4vw,2.1rem)/1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
-.tile span{font-size:.88rem;color:var(--muted);line-height:1.45}
+.tldr{background:#111111;color:#f3f3f1;border-radius:18px;padding:24px 24px 20px;margin:28px 0 14px;position:relative;overflow:hidden}
+.tldr::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,var(--blue),var(--violet),var(--orange),var(--yellow))}
+.tldr strong{display:block;margin-bottom:12px;font-family:var(--display);font-size:1.12rem;color:#ffffff}
+.post .tldr ul{list-style:none;padding:0;margin:0;gap:12px}
+.post .tldr li{display:flex;gap:12px;align-items:baseline;font-size:1rem;line-height:1.55;color:#dcdcd8}
+.tldr li b{color:#ffffff}
+.tldr .k{flex:none;width:10px;height:10px;border-radius:50%;background:var(--c);transform:translateY(-1px)}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 30px}
+@media (max-width:640px){.tiles{grid-template-columns:1fr}}
+.tile{background:#ffffff;border:1px solid var(--line);border-top:5px solid var(--c);border-radius:14px;padding:16px 16px 18px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.tile b{font:800 clamp(1.9rem,3.6vw,2.3rem)/1 var(--display);color:var(--c);font-variant-numeric:tabular-nums}
+.tile span{font-size:.9rem;color:var(--muted);line-height:1.45}
+
 figure.chart{margin:24px 0;background:#ffffff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 12px}
 figure.chart figcaption{font-size:.86rem;color:var(--muted);margin-top:8px}
 figure.chart .ct{font-family:var(--display);font-weight:700;font-size:1.02rem;margin-bottom:10px;color:var(--ink)}
